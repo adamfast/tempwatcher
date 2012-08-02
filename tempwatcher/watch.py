@@ -18,10 +18,13 @@ class TemperatureWatch(object):
             self.get_info()
 
         if self._last_response['temp'] > self.alert_high:
-            print('Temperature max of %s exceeded. Currently %s' % (self.alert_high, self._last_response['temp']))
+            self.alert('Temperature max of %s exceeded. Currently %s' % (self.alert_high, self._last_response['temp']))
 
         if self._last_response['temp'] < self.alert_low:
-            print('Temperature min of %s exceeded. Currently %s' % (self.alert_low, self._last_response['temp']))
+            self.alert('Temperature min of %s exceeded. Currently %s' % (self.alert_low, self._last_response['temp']))
+
+    def alert(self, message):
+        print(message)
 
 
 if __name__ == '__main__':

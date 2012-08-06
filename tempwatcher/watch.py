@@ -28,6 +28,9 @@ class TemperatureWatch(object):
 
 
 if __name__ == '__main__':
+    thermostat_ip = '10.0.1.53'
+
+    # simple configuration - set the IP, nothing else. Print the alerts when they occur to stdout. Not very useful though...
     tw = TemperatureWatch()
-    tw.thermostat_url = 'http://10.0.1.52'
+    tw.thermostat_url = 'http://%s' % thermostat_ip
     tw.check_temp()
